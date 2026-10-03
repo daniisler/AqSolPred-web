@@ -1,0 +1,21 @@
+[workspace]
+authors = ["Murat Cihan Sorkun"]
+channels = ["conda-forge", "rdkit"]
+name = "aqsolpred-env"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.8.*"
+libgcc = "5.2.0.*"
+rdkit = "2019.9.3.*"
+numpy = "1.18.1.*"
+
+[pypi-dependencies]
+streamlit = "==0.69.2"
+numpy = "==1.18.1"
+scikit-learn = "==0.22.2.post1"
+mordred = "==1.2.0"
+xgboost = "==1.0.2"

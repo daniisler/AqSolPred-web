@@ -20,7 +20,8 @@ ENV PATH="/root/.pixi/bin:${PATH}"
 WORKDIR /app
 
 # Copy the environment file first to leverage docker layer caching
-COPY aqsolpred-env/pixi.toml ./aqsolpred-env/
+COPY aqsolpred-env/pixi.toml aqsolpred-env/pixi.lock ./aqsolpred-env/
+RUN pixi install --locked --manifest-path aqsolpred-env/pixi.toml
 
 # Pre-install environment dependencies using pixi
 RUN pixi install --manifest-path aqsolpred-env/pixi.toml

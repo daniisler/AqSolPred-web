@@ -1,4 +1,5 @@
-FROM debian:trixie-slim
+# Keep the build environment on x86_64 for the pinned legacy RDKit packages.
+FROM --platform=linux/amd64 debian:trixie-slim
 
 # Upgrade Trixie's base packages and install only required runtime utilities.
 # Streamlit 0.69 may call sudo dbus-uuidgen when no machine ID exists.
@@ -35,7 +36,7 @@ WORKDIR /app
 # Install from the committed lockfile for repeatable dependency resolution.
 COPY aqsolpred-env/pixi.toml aqsolpred-env/pixi.lock ./aqsolpred-env/
 # Drop downloaded packages from the image after installation to reduce image size.
-RUN pixi install --locked --manifest-path aqsolpred-env/pixi.toml \
+RUN pixi install --locked --platform linux-64 --manifest-path aqsolpred-env/pixi.toml \
     && rm -rf /root/.cache/rattler/cache
 
 # Copy the rest of the repository files (app.py, models, images)

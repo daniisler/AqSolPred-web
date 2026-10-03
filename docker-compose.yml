@@ -1,11 +1,23 @@
 services:
   aqsolpred-web:
+    # The pinned legacy RDKit build is x86_64-only; Pi runs it via amd64 emulation.
     platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
+    # Set AQSOLPRED_HOST_PORT per instance; Streamlit stays on 8501 internally.
     ports:
       - "${AQSOLPRED_HOST_PORT:-8501}:8501"
     restart: always
+    # Restrict container privileges; /tmp remains writable via tmpfs below.
+    init: true
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,noexec,size=128m,mode=1777
     environment:
       - PYTHONUNBUFFERED=1

@@ -1,0 +1,10 @@
+services:
+  aqsolpred-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${AQSOLPRED_HOST_PORT:-8501}:8501"
+    restart: always
+    environment:
+      - PYTHONUNBUFFERED=1

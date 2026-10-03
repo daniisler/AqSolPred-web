@@ -38,6 +38,21 @@ and run the app from the root directory using:
 pixi run --manifest aqsolpred-env/pixi.toml streamlit run streamlit/app.py
 ```
 
+# Run Streamlit through Docker
+
+To run the web application using Docker, build the Docker image and start the container:
+
+```bash
+docker compose up --build
+```
+
+By default, Streamlit is available at http://localhost:8501. Set `AQSOLPRED_HOST_PORT` to publish it on a different host port. Use a different Compose project name for each running instance:
+
+```bash
+AQSOLPRED_HOST_PORT=8501 docker compose -p aqsolpred-8501 up --build -d
+AQSOLPRED_HOST_PORT=8502 docker compose -p aqsolpred-8502 up --build -d
+```
+
 # References
 
 [1] Sorkun, M. C., Koelman, J.M.V.A. & Er, S.  (2020). Pushing the limits of solubility prediction via quality-oriented data selection, Research Square, DOI: https://doi.org/10.21203/rs.3.rs-84771/v1.

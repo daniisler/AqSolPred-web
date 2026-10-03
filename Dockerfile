@@ -23,9 +23,6 @@ WORKDIR /app
 COPY aqsolpred-env/pixi.toml aqsolpred-env/pixi.lock ./aqsolpred-env/
 RUN pixi install --locked --manifest-path aqsolpred-env/pixi.toml
 
-# Pre-install environment dependencies using pixi
-RUN pixi install --manifest-path aqsolpred-env/pixi.toml
-
 # Copy the rest of the repository files (app.py, models, images)
 COPY . .
 

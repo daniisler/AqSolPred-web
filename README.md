@@ -8,20 +8,35 @@ AqSolPred showed a top-performance (0.348 LogS Mean Absolute Error) on Huuskonen
 
 # AqSolPred Web Version
 
-Currently, web version is running on Streamlit Share (the related repository is inside streamlit folder). 
+Currently, web version is running on Streamlit Share (the related repository is inside streamlit folder).
 You can visit from the following URL: https://share.streamlit.io/mcsorkun/aqsolpred-web/main/streamlit/app.py
 
 **aqsolpred web version:** 1.0s (lite version of v1.0 described in the paper with reduced RFs(n_estimators=200,max_depth=10) but the same performance)
 
 If you are using the predictions from AqSolPred on your work, please cite these papers: [1, 2]
 
-**Special thanks:** This web app is developed based on the tutorials and the template of [DataProfessor's repository](https://github.com/dataprofessor/code/tree/master/streamlit/part7). 
+**Special thanks:** This web app is developed based on the tutorials and the template of [DataProfessor's repository](https://github.com/dataprofessor/code/tree/master/streamlit/part7).
 
-**Note:** Main folder was prepared for Heroku deployment, however it passes the Heroku slug size therefore it is not online on heroku.  
+**Note:** Main folder was prepared for Heroku deployment, however it passes the Heroku slug size therefore it is not online on heroku.
 
 **PS:** Check out dockerfile in gcloud folder to know how I installed conda + rdkit on google cloud platform.
-                                                                                         
+
 **Contact:** [Murat Cihan Sorkun](https://www.linkedin.com/in/murat-cihan-sorkun/)
+
+# Run Streamlit Locally
+
+To run the web application locally, install the requirements:
+
+```bash
+curl -fsSL https://pixi.sh/install.sh | sh
+pixi install --manifest aqsolpred-env/pixi.toml
+```
+
+and run the app from the root directory using:
+
+```bash
+pixi run --manifest aqsolpred-env/pixi.toml streamlit run streamlit/app.py
+```
 
 # References
 

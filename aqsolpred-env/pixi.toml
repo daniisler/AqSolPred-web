@@ -9,9 +9,13 @@ version = "0.1.0"
 
 [dependencies]
 python = "3.8.*"
-libgcc = "5.2.0.*"
 rdkit = "2019.9.3.*"
 numpy = "1.18.1.*"
+setuptools = "<82.0.0"
+protobuf = "<4"
+click = "<8.1.0"
+boost-cpp = "1.70.0.*"
+boost = "1.70.0.*"
 
 [pypi-dependencies]
 streamlit = "==0.69.2"

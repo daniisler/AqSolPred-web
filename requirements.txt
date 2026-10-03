@@ -1,6 +1,0 @@
-rdkit
-mordredcommunity
-pandas
-scikit-learn
-xgboost
-streamlit

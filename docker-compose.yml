@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      # Ensure Portainer exports an amd64 image, not an ARM64 host image.
+      platforms:
+        - linux/amd64
     # Set AQSOLPRED_HOST_PORT per instance; Streamlit stays on 8501 internally.
     ports:
       - "${AQSOLPRED_HOST_PORT:-8501}:8501"

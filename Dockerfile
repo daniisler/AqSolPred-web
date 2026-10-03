@@ -1,5 +1,6 @@
 # Keep the build environment on x86_64 for the pinned legacy RDKit packages.
-FROM --platform=linux/amd64 debian:trixie-slim
+# Compose selects amd64 as the build target for the pinned legacy RDKit packages.
+FROM debian:trixie-slim
 
 # Upgrade Trixie's base packages and install only required runtime utilities.
 # Streamlit 0.69 may call sudo dbus-uuidgen when no machine ID exists.
